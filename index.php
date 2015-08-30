@@ -80,7 +80,7 @@ if ($query_run = mysql_query($query)) {
 		$answer = $row['Answer'];
 		$timestamp = $row['TimeStamp'];
 		$country = $row['Country'];
-		
+
 		// 18 HOURS HAS PASSED?
 		date_default_timezone_set('America/Los_Angeles');
 		$time_diff = time() - strtotime($timestamp);
@@ -105,14 +105,14 @@ if (!$repeat) {
 
 	// STEAL SOME INFORMATION AND FAX IT OVER TO GCHQ
 	$result = getResponse('http://ipinfo.io/'. $ip .'/json');
-	
+
 	$region = getValue('"region":', '"country"', $result);
 	$country = getValue('"country":', '"loc"', $result);
-	
+
 	$query = "INSERT INTO Baggots (IP, Answer, Region, Country, TimeStamp) VALUES ('" .$ip ."', '" .$answer. "', '" .$region. "', '" .$country. "', CURRENT_TIMESTAMP )";
 	$query_run = mysql_query($query);
-	
-	/*if ($answer == 0) 
+
+	/*if ($answer == 0)
 		$query_run = mysql_query("");
 		$answers = mysql_fetch_assoc($query_run);
 	}*/
@@ -154,7 +154,9 @@ echo "<br><br><br>More People<br>";*/
     <section class="bag-module">
       <h1>Am I Bag Today?</h1>
 
-      <span id="answer"><?php echo $answer_written; ?></span>
+      <span class="answer"><?php echo $answer_written; ?></span>
+
+      <article class="ans-subtxt">Subtext Here</article>
 
       <div class="ratio-bar">
         <div id="ratio-yes" class="ratio-ans"></div>
@@ -168,7 +170,7 @@ echo "<br><br><br>More People<br>";*/
       <h2>Most Recent Answers</h2>
 
       <table class="mranswers">
-        <?php 
+        <?php
             // OTHER BAGS & NON-BAGS
             echo "<tbody>";
             $query = 'SELECT * FROM Baggots ORDER BY `Baggots`.`TimeStamp` DESC LIMIT 0, 10';
