@@ -1,21 +1,3 @@
-! function question() {
-
-  var $answer = document.getElementById("answer");
-
-  if ( Math.random() > .5 ) {
-
-    $answer.innerHTML = "Yes.";
-    $answer.classList.add("ans-yes");
-
-  } else {
-
-    $answer.innerHTML = "No.";
-    $answer.classList.add("ans-no");
-
-  }
-
-}();
-
 ! function bagModule() {
 
   var $modules = document.querySelectorAll("[data-moduletype=expand]");

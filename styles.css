@@ -109,7 +109,7 @@ h2 {
   font: 900 32px Roboto;
 }
 
-#answer {
+.answer {
   font: 700 64px Roboto;
 }
 
@@ -121,6 +121,11 @@ h2 {
   color: #C83131;
 }
 
+.ans-subtxt {
+  margin-top: 20px;
+  opacity: .9;
+}
+
 .ratio-bar {
   display: -webkit-flex;
   display:  -webkit-box;
@@ -128,7 +133,7 @@ h2 {
   display:         flex;
   width: 60%;
   height: 4px;
-  margin: 80px auto;
+  margin: 40px auto;
 }
 
 .ratio-ans {
