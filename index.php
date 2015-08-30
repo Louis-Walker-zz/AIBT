@@ -164,7 +164,7 @@ echo "<br><br><br>More People<br>";*/
 
       <article class="ans-subtxt">
       <?php 
-      if ($answer == "no") {
+      if ($answer == 1) {
       	echo "Welcome Bag";
       } else {
       	echo "Welcome back, you are not Bag today."; 
