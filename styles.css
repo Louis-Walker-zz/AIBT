@@ -166,6 +166,14 @@ h2 {
   border-left: 2px solid #C83131;
 }
 
+.mra-yes {
+  border-left: 2px solid #72C831;
+}
+
+.mra-no {
+  border-left: 2px solid #C83131;
+}
+
 .mra-row td:nth-child(1) {
   margin-left: 20px;
   text-align: left;
