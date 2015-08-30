@@ -178,7 +178,7 @@ echo "<br><br><br>More People<br>";*/
                     $timestamp = $row['TimeStamp'];
                     $country = $row['Country'];
 
-                    $answer_written = ($answers == 0 ? "No." : "Yes.");
+                    $answer_written = ($answers == 0 ? "no" : "yes");
                     echo '<tr class="mra-row mra-' .$answer_written. '"><td>';
                     echo "<img src=./flags/" .strtolower($country) .".png> ";
                     echo getCountryName($country) .'</td>';
