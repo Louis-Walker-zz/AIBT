@@ -87,12 +87,12 @@ if ($query_run = mysql_query($query)) {
 		// times
 		$hours = floor($time_diff/3600);
 		if ($hours > 17) {
-			$welcome_msg = "Welcome back";
+			$welcome_msg = "Welcome Bag!";
 			$repeat = false;
 			$q = "DELETE FROM Baggots WHERE `ip`='" .$ip. "'";
 			$qr = mysql_query($q);
 		} else {
-			$welcome_msg = "As we've said before, come back in " .(18-$hours) ." hours";
+			$welcome_msg = "Welcome back, you are not Bag today.";
 		}
 	}
 } else {
@@ -164,11 +164,7 @@ echo "<br><br><br>More People<br>";*/
 
       <article class="ans-subtxt">
       <?php 
-      if ($answer == 1) {
-      	echo "Welcome Bag";
-      } else {
-      	echo "Welcome back, you are not Bag today."; 
-      }
+      echo $welcome_msg;
       ?>
       </article>
 
