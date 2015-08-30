@@ -14,7 +14,7 @@ $welcome_msg = '';
 // MYSQL ////////////////////////////////////////
 $mysql_host = 'localhost';
 $mysql_user = 'bagonly';
-$mysql_pass = 'BagIsTheBest%=TRUTH!';
+$mysql_pass = 'REDACTED';
 mysql_connect($mysql_host, $mysql_user, $mysql_pass) or die("Couldn't connect");
 
 $mysql_db = 'amibagtoday';
@@ -154,13 +154,44 @@ echo "<br><br><br>More People<br>";*/
     <section class="bag-module">
       <h1>Am I Bag Today?</h1>
 
-      <span class="answer"><?php echo $answer_written; ?></span>
+      <?php 
+      $answer_written = ($answer == 0 ? 'no' : 'yes');
+      echo '<span class="answer ans-' .$answer_written .'">'; 
+      
+      $answer_written = ($answer == 0 ? 'No.' : 'Yes.');
+      echo $answer_written . '</span>';
+      ?>
 
-      <article class="ans-subtxt">Subtext Here</article>
+      <article class="ans-subtxt">
+      <?php 
+      if ($answer == "no") {
+      	echo "Welcome Bag";
+      } else {
+      	echo "Welcome back, you are not Bag today."; 
+      }
+      ?>
+      </article>
 
       <div class="ratio-bar">
-        <div id="ratio-yes" class="ratio-ans"></div>
-        <div id="ratio-no" class="ratio-ans"></div>
+      <?php
+      	// GET YES AND NO
+      	function getSQLValue($query) {
+		if ($query_run = mysql_query($query)) {
+			while($row = mysql_fetch_assoc($query_run)) {
+				return $row['answers'];
+			}
+		
+		}
+	}
+	$yeses = getSQLValue('SELECT count(*) AS answers FROM Baggots WHERE Answer=1');
+	$nos = getSQLValue('SELECT count(*) AS answers FROM Baggots WHERE Answer=0');
+	$total = $yeses + $nos;
+	
+	$yes_width = ($yeses / $total) * 100;
+	$no_width = ($nos / $total) * 100;
+	echo '<div id="ratio-yes" class="ratio-ans" style="width: '. $yes_width .'%"></div>';
+	echo '<div id="ratio-no" class="ratio-ans" style="width: '. $no_width .'%"></div>';
+      ?>
       </div>
     </section>
 
@@ -173,14 +204,14 @@ echo "<br><br><br>More People<br>";*/
         <?php
             // OTHER BAGS & NON-BAGS
             echo "<tbody>";
-            $query = 'SELECT * FROM Baggots ORDER BY `Baggots`.`TimeStamp` DESC LIMIT 0, 10';
+            $query = 'SELECT * FROM Baggots ORDER BY `Baggots`.`TimeStamp` DESC LIMIT 0, 8';
             if ($query_run = mysql_query($query)) {
                 while($row = mysql_fetch_assoc($query_run)) {
                     $answer = $row['Answer'];
                     $timestamp = $row['TimeStamp'];
                     $country = $row['Country'];
 
-                    $answer_written = ($answers == 0 ? "no" : "yes");
+                    $answer_written = ($answer == 0 ? "no" : "yes");
                     echo '<tr class="mra-row mra-' .$answer_written. '"><td>';
                     echo "<img src=./flags/" .strtolower($country) .".png> ";
                     echo getCountryName($country) .'</td>';
