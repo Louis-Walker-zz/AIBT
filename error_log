@@ -1,5 +1,0 @@
-[29-Aug-2015 18:56:59 UTC] PHP Fatal error:  Call to undefined function geoip_record_by_name() in /home/yuuberadmin/public_html/amibag.today/faggot.php on line 12
-[29-Aug-2015 18:57:07 UTC] PHP Fatal error:  Call to undefined function geoip_record_by_name() in /home/yuuberadmin/public_html/amibag.today/faggot.php on line 12
-[30-Aug-2015 10:43:33 UTC] PHP Fatal error:  Call to undefined function NOW() in /home/yuuberadmin/public_html/amibag.today/faggot.php on line 9
-[30-Aug-2015 11:10:05 UTC] PHP Fatal error:  Call to undefined function now() in /home/yuuberadmin/public_html/amibag.today/faggot.php on line 56
-[30-Aug-2015 11:47:01 UTC] PHP Fatal error:  Unsupported operand types in /home/yuuberadmin/public_html/amibag.today/faggot.php on line 56
