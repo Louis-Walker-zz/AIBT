@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // BY ADRIAN "BAG"
 // IF YOU STEAL THIS, I WOULD BE VERY CONFUSED
 
@@ -14,7 +14,7 @@ $welcome_msg = '';
 // MYSQL ////////////////////////////////////////
 $mysql_host = 'localhost';
 $mysql_user = 'bagonly';
-$mysql_pass = 'REDACTED';
+$mysql_pass = 'OBFUSCATED';
 mysql_connect($mysql_host, $mysql_user, $mysql_pass) or die("Couldn't connect");
 
 $mysql_db = 'amibagtoday';
@@ -72,7 +72,7 @@ function getValue($str1, $str2, $resp) {
     return $res;
 }
 
-// CHECK THE MYSQL IF THEY EXIST & GET OLD INFO
+// CHECK THE MYSQL IF THEY EXIST & GET OLD INFO 
 $query = 'SELECT * FROM Baggots WHERE IP="' .$ip .'"';
 if ($query_run = mysql_query($query)) {
 	while($row = mysql_fetch_assoc($query_run)) {
@@ -87,12 +87,21 @@ if ($query_run = mysql_query($query)) {
 		// times
 		$hours = floor($time_diff/3600);
 		if ($hours > 17) {
-			$welcome_msg = "Welcome Bag!";
+			$welcome_msg = "Another day, another answer";
+			
 			$repeat = false;
 			$q = "DELETE FROM Baggots WHERE `ip`='" .$ip. "'";
 			$qr = mysql_query($q);
 		} else {
-			$welcome_msg = "Welcome back, you are not Bag today.";
+			if ($answer == 1){
+				$welcome_msg = "Welcome Bag!";
+				$wildcard = rand(1, 100);
+				if ($wildcard == 69) {
+					$welcome_msg = "Welcome Douchebag!";
+				}
+			} else {
+				$welcome_msg = "Welcome back, you are not Bag today.";
+			}
 		}
 	}
 } else {
@@ -119,7 +128,7 @@ if (!$repeat) {
 }
 
 // Yes or No?
-$answer_written = ($answers == 0 ? "No." : "Yes.");
+$answer_written = ($answers == 0 ? "No" : "Yes");
 
 // TELL EM STR8
 /*echo "<h2>" .$answer_written ."</h2>";
@@ -148,7 +157,7 @@ echo "<br><br><br>More People<br>";*/
     <header class="pg-header">
       <span>© Yuuber 2015</span>
 
-      <span>Co-Created @ <a class="hdr-link" href="http://yuuber.com/">Yuuber.com</a></span>
+      <span>Co-Created @ <a class="hdr-link" href="#">Yuuber.com</a></span>
     </header>
 
     <section class="bag-module">
@@ -209,7 +218,7 @@ echo "<br><br><br>More People<br>";*/
 
                     $answer_written = ($answer == 0 ? "no" : "yes");
                     echo '<tr class="mra-row mra-' .$answer_written. '"><td>';
-                    echo "<img src=./flags/" .strtolower($country) .".png> ";
+                    echo '<img src="./flags/' .strtolower($country) .'.png"> ';
                     echo getCountryName($country) .'</td>';
 
                     echo '<td> ' .ago($timestamp) .'</td>';
@@ -223,6 +232,6 @@ echo "<br><br><br>More People<br>";*/
       </table>
     </section>
 
-    <script type="text/javascript" src="scripts.js"></script>
+<script type="text/javascript" src="scripts.js"></script>
   </body>
 </html>
