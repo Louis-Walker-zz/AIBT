@@ -72,7 +72,7 @@ function getValue($str1, $str2, $resp) {
     return $res;
 }
 
-// CHECK THE MYSQL IF THEY EXIST & GET OLD INFO 
+// CHECK THE MYSQL IF THEY EXIST & GET OLD INFO
 $query = 'SELECT * FROM Baggots WHERE IP="' .$ip .'"';
 if ($query_run = mysql_query($query)) {
 	while($row = mysql_fetch_assoc($query_run)) {
@@ -88,7 +88,7 @@ if ($query_run = mysql_query($query)) {
 		$hours = floor($time_diff/3600);
 		if ($hours > 17) {
 			$welcome_msg = "Another day, another answer";
-			
+
 			$repeat = false;
 			$q = "DELETE FROM Baggots WHERE `ip`='" .$ip. "'";
 			$qr = mysql_query($q);
@@ -154,6 +154,8 @@ echo "<br><br><br>More People<br>";*/
   </head>
 
   <body>
+    <?php include_once("analyticstracking.php") ?>
+    
     <header class="pg-header">
       <span>© Yuuber 2015</span>
 
@@ -163,16 +165,16 @@ echo "<br><br><br>More People<br>";*/
     <section class="bag-module">
       <h1>Am I Bag Today?</h1>
 
-      <?php 
+      <?php
       $answer_written = ($answer == 0 ? 'no' : 'yes');
-      echo '<span class="answer ans-' .$answer_written .'">'; 
-      
+      echo '<span class="answer ans-' .$answer_written .'">';
+
       $answer_written = ($answer == 0 ? 'No.' : 'Yes.');
       echo $answer_written . '</span>';
       ?>
 
       <article class="ans-subtxt">
-      <?php 
+      <?php
       echo $welcome_msg;
       ?>
       </article>
@@ -185,13 +187,13 @@ echo "<br><br><br>More People<br>";*/
 			while($row = mysql_fetch_assoc($query_run)) {
 				return $row['answers'];
 			}
-		
+
 		}
 	}
 	$yeses = getSQLValue('SELECT count(*) AS answers FROM Baggots WHERE Answer=1');
 	$nos = getSQLValue('SELECT count(*) AS answers FROM Baggots WHERE Answer=0');
 	$total = $yeses + $nos;
-	
+
 	$yes_width = ($yeses / $total) * 100;
 	$no_width = ($nos / $total) * 100;
 	echo '<div id="ratio-yes" class="ratio-ans" style="width: '. $yes_width .'%"></div>';
@@ -232,6 +234,6 @@ echo "<br><br><br>More People<br>";*/
       </table>
     </section>
 
-<script type="text/javascript" src="scripts.js"></script>
+    <script type="text/javascript" src="scripts.js"></script>
   </body>
 </html>
