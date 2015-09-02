@@ -47,6 +47,21 @@
   color: #EBF5FB;
 }
 
+/* Answer */
+.answer {
+  font: 700 64px Roboto;
+  color: #C83131;
+}
+
+.ans-yes {
+  color: #72C831;
+}
+
+.ans-subtxt {
+  margin-top: 20px;
+  opacity: .9;
+}
+
 /* Ratio UI */
 .ratio-bar {
   width: 80%;
@@ -85,24 +100,6 @@
   width: 42%;
 }
 
-/* Answer */
-.answer {
-  font: 700 64px Roboto;
-}
-
-.ans-yes {
-  color: #72C831;
-}
-
-.ans-no {
-  color: #C83131;
-}
-
-.ans-subtxt {
-  margin-top: 20px;
-  opacity: .9;
-}
-
 /* Most Recent Answers Module */
 .mranswers {
   width: 80%;
@@ -115,19 +112,11 @@
   height: 20px;
   margin: 0 0 8px;
   border-left: 2px solid #C83131;
+  overflow: hidden;
 }
 
 .mra-yes {
   border-left: 2px solid #72C831;
-}
-
-.mra-no {
-  border-left: 2px solid #C83131;
-}
-
-.mra-row td:nth-child(1) {
-  margin-left: 20px;
-  text-align: left;
 }
 
 .mra-row td {
@@ -136,7 +125,19 @@
   margin-top: 2px;
 }
 
+.mra-arrow {
+  max-width: 10px;
+  height: 10px;
+  background: #C83131;
+  transform: translate(-8px, 3px) rotate(45deg);
+}
+
 .mra-row td:nth-child(2) {
+  margin-left: 10px;
+  text-align: left;
+}
+
+.mra-row td:nth-child(3) {
   font: 500 14px Roboto;
   font-style: italic;
   text-align: right;
