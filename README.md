@@ -8,7 +8,7 @@ AIBT is a one page application that displays if you are Bag today. The reference
 * Accounts - Answer history, Answer Ratio, Badges
 * Wildcards
 * Full answer history module with powerful search/filter tool
-* API
+* Answers API
 
 ##Contributors
 * Pheta | [@PhetaJS](http://twitter.com/phetajs), [Website](http://phetajs.com)
