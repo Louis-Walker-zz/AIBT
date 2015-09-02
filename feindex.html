@@ -9,12 +9,13 @@
 
     <link href='https://fonts.googleapis.com/css?family=Roboto:900,700,500' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" type="text/css" href="reset.css" />
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/reset.css" />
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/styles.css" />
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/module.css" />
   </head>
 
   <body>
-    <header class="pg-header">
+    <header class="pg-header flex">
       <span>© Yuuber 2015</span>
 
       <span>Co-Created @ <a class="hdr-link" href="#">Yuuber.com</a></span>
@@ -27,48 +28,62 @@
 
       <article class="ans-subtxt">Subtext Here</article>
 
-      <div class="ratio-bar">
-        <div id="ratio-yes" class="ratio-ans" style="width: [PHP]"></div>
-        <div id="ratio-no" class="ratio-ans" style="width: [PHP]"></div>
+      <div class="ratio-bar flex">
+        <div id="ratio-yes" class="ratio-ans ratio-yes" style="width: [PHP];"></div>
+        <div id="ratio-no" class="ratio-ans ratio-yes" style="width: [PHP];"></div>
+      </div>
+
+      <div class="ratio-meta flex">
+        <div class="flex">
+          <div class="ratio-meta-spacer"></div>
+
+          <span class="txt-module ratio-meta-yes">50%</span>
+        </div>
+
+        <div class="flex">
+          <div class="ratio-meta-spacer"></div>
+
+          <span class="txt-module ratio-meta-no">50%</span>
+        </div>
       </div>
     </section>
 
-    <section class="bag-module module-expandable" data-moduletype="expand">
-      <button class="module-expand-button" type="button">More Info</button>
+    <section class="bag-module module-expandable module-collapse" data-moduletype="expand">
+      <button class="module-expander" type="button">More Info</button>
 
       <h2>Most Recent Answers</h2>
 
       <table class="mranswers">
         <tbody>
-          <tr class="mra-row mra-[PHP]">
+          <tr class="mra-row flex mra-[PHP]">
             <td>United Kingdom</td>
             <td>0 seconds ago</td>
           </tr>
-          <tr class="mra-row mra-[PHP]">
+          <tr class="mra-row flex mra-[PHP]">
             <td>United Kingdom</td>
             <td>0 seconds ago</td>
           </tr>
-          <tr class="mra-row mra-[PHP]">
+          <tr class="mra-row flex mra-[PHP]">
             <td>United Kingdom</td>
             <td>0 seconds ago</td>
           </tr>
-          <tr class="mra-row mra-[PHP]">
+          <tr class="mra-row flex mra-[PHP]">
             <td>United Kingdom</td>
             <td>0 seconds ago</td>
           </tr>
-          <tr class="mra-row mra-[PHP]">
+          <tr class="mra-row flex mra-[PHP]">
             <td>United Kingdom</td>
             <td>0 seconds ago</td>
           </tr>
-          <tr class="mra-row mra-[PHP]">
+          <tr class="mra-row flex mra-[PHP]">
             <td>United Kingdom</td>
             <td>0 seconds ago</td>
           </tr>
-          <tr class="mra-row mra-[PHP]">
+          <tr class="mra-row flex mra-[PHP]">
             <td>United Kingdom</td>
             <td>0 seconds ago</td>
           </tr>
-          <tr class="mra-row mra-[PHP]">
+          <tr class="mra-row flex mra-[PHP]">
             <td>United Kingdom</td>
             <td>0 seconds ago</td>
           </tr>
@@ -76,6 +91,6 @@
       </table>
     </section>
 
-    <script type="text/javascript" src="scripts.js"></script>
+    <script type="text/javascript" src="assets/scripts/userinterface.js"></script>
   </body>
 </html>
