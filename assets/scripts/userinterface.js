@@ -45,7 +45,7 @@
 
     if ( currentPos !== target ) {
       ! function scrollIt() {
-        var currentPos = document.body.scrollTop;
+        currentPos = document.body.scrollTop;
 
         if ( currentPos < target ) {
           window.scrollTo( 0, currentPos + 5 );
