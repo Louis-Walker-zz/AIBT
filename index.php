@@ -13,11 +13,11 @@ $welcome_msg = '';
 
 // MYSQL ////////////////////////////////////////
 $mysql_host = 'localhost';
-$mysql_user = 'bagonly';
-$mysql_pass = 'OBFUSCATED';
+$mysql_user = 'bag_the_second';
+$mysql_pass = 'yumyums';
 mysql_connect($mysql_host, $mysql_user, $mysql_pass) or die("Couldn't connect");
 
-$mysql_db = 'amibagtoday';
+$mysql_db = 'aibt';
 mysql_select_db($mysql_db);
 
 // BAGS FUNCTIONS ////////////////////////////////
@@ -141,25 +141,51 @@ echo "<br><br><br>More People<br>";*/
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Generic Meta Data -->
     <meta charset="utf-8" />
-
-    <title>Am I Bag Today?</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link href='https://fonts.googleapis.com/css?family=Roboto:900,700,500' rel='stylesheet' type='text/css'>
+    <title>Am I Bag Today?</title>
 
-    <link rel="stylesheet" type="text/css" href="reset.css" />
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="http://www.amibag.today/assets/fav/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="http://www.amibag.today/assets/fav/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="http://www.amibag.today/assets/fav/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="http://www.amibag.today/assets/fav/favicon-128x128.png" sizes="128x128" />
+    <link rel="icon" type="image/png" href="http://www.amibag.today/assets/fav/favicon-196x196.png" sizes="196x196" />
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="http://www.amibag.today/assets/fav/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="http://www.amibag.today/assets/fav/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.amibag.today/assets/fav/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="http://www.amibag.today/assets/fav/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.amibag.today/assets/fav/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://www.amibag.today/assets/fav/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.amibag.today/assets/fav/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://www.amibag.today/assets/fav/apple-touch-icon-152x152.png" />
+
+    <meta name="application-name" content="AIMB"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="http://www.amibag.today/assets/fav/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="http://www.amibag.today/assets/fav/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="http://www.amibag.today/assets/fav/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="http://www.amibag.today/assets/fav/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="http://www.amibag.today/assets/fav/mstile-310x310.png" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/reset.css" />
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/styles.css" />
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/module.css" />
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/flags.css" />
   </head>
 
   <body>
     <?php include_once("analyticstracking.php") ?>
-    
-    <header class="pg-header">
-      <span>© Yuuber 2015</span>
 
-      <span>Co-Created @ <a class="hdr-link" href="#">Yuuber.com</a></span>
+    <header class="pg-header flex">
+      <span>© PhetaJS 2015</span>
+
+      <span>Co-Created @ <a class="hdr-link" href="#">PhetaJS.com</a></span>
     </header>
 
     <section class="bag-module">
@@ -179,7 +205,7 @@ echo "<br><br><br>More People<br>";*/
       ?>
       </article>
 
-      <div class="ratio-bar">
+      <div class="ratio-bar flex">
       <?php
       	// GET YES AND NO
       	function getSQLValue($query) {
@@ -196,14 +222,28 @@ echo "<br><br><br>More People<br>";*/
 
 	$yes_width = ($yeses / $total) * 100;
 	$no_width = ($nos / $total) * 100;
-	echo '<div id="ratio-yes" class="ratio-ans" style="width: '. $yes_width .'%"></div>';
-	echo '<div id="ratio-no" class="ratio-ans" style="width: '. $no_width .'%"></div>';
+	echo '<div class="ratio-ans ratio-yes" style="width: '. $yes_width .'%"></div>';
+	echo '<div class="ratio-ans ratio-no" style="width: '. $no_width .'%"></div>';
       ?>
+      </div>
+
+      <div class="ratio-meta flex">
+        <?php echo '<div class="ratio-meta-ans flex" style="width: '. $yes_width .'%">' ?>
+          <div class="ratio-meta-spacer"></div>
+
+          <?php echo '<span class="txt-module ratio-yes">'. round($yes_width) .'%</span>' ?>
+        </div>
+
+        <?php echo '<div class="ratio-meta-ans flex" style="width: '.$no_width .'%">' ?>
+          <div class="ratio-meta-spacer"></div>
+
+          <?php echo '<span class="txt-module ratio-no">'. round($no_width) .'%</span>' ?>
+        </div>
       </div>
     </section>
 
-    <section class="bag-module module-expandable" data-moduletype="expand">
-      <button class="module-expand-button" type="button">More Info</button>
+    <section class="bag-module module-expandable module-collapse" data-moduletype="expand">
+      <button class="module-expander" type="button">More Info</button>
 
       <h2>Most Recent Answers</h2>
 
@@ -219,9 +259,10 @@ echo "<br><br><br>More People<br>";*/
                     $country = $row['Country'];
 
                     $answer_written = ($answer == 0 ? "no" : "yes");
-                    echo '<tr class="mra-row mra-' .$answer_written. '"><td>';
-                    echo '<img src="./flags/' .strtolower($country) .'.png"> ';
-                    echo getCountryName($country) .'</td>';
+                    echo '<tr class="mra-row flex mra-' .$answer_written. '">';
+                    echo '<td class="mra-arrow arrow-' .$answer_written. '"></td>';
+                    echo '<td class="flag-' .strtolower($country) .'"> </td>';
+                    echo '<td>' .getCountryName($country) .'</td>';
 
                     echo '<td> ' .ago($timestamp) .'</td>';
                     echo '</tr>';
@@ -234,6 +275,6 @@ echo "<br><br><br>More People<br>";*/
       </table>
     </section>
 
-    <script type="text/javascript" src="scripts.js"></script>
+    <script type="text/javascript" src="assets/scripts/userinterface.js"></script>
   </body>
 </html>

@@ -41,20 +41,35 @@
   }
 
   function bagScroll( target ) {
-    var currentPos = document.body.scrollTop;
+    function detectPos() {
+      if ( document.body.scrollTop !== 0 ) {
+        return document.body.scrollTop;
+      } else {
+        return document.documentElement.scrollTop;
+      }
+    }
+
+    var currentPos = detectPos();
 
     if ( currentPos !== target ) {
       ! function scrollIt() {
-        currentPos = document.body.scrollTop;
+        currentPos = detectPos();
 
         if ( currentPos < target ) {
-          window.scrollTo( 0, currentPos + 5 );
+          for ( i = 0; i < 5; i++) {
+            currentPos = detectPos();
+            window.scrollTo( 0, currentPos + 1 );
+          }
         } else if ( currentPos > target ) {
-          window.scrollTo( 0, currentPos - 5 );
+          for ( i = 0; i < 5; i++) {
+            currentPos = detectPos();
+            window.scrollTo( 0, currentPos - 1 );
+          }
         }
 
-        if ( currentPos !== target ) {
+        if ( currentPos > ( target + 4) || currentPos < ( target - 4 ) ) {
           setTimeout( scrollIt, 1 );
+          console.log(currentPos + " " + target);
         }
       }();
     }

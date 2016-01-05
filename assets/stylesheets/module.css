@@ -121,7 +121,7 @@
 
 .mra-row td {
   display: block;
-  width: 50%;
+  width: 25%;
   margin-top: 2px;
 }
 
@@ -132,12 +132,31 @@
   transform: translate(-8px, 3px) rotate(45deg);
 }
 
+.arrow-yes {
+  background: #72C831;
+}
+
+.arrow-no {
+  background: #C83131;
+}
+
 .mra-row td:nth-child(2) {
+  width: 16px;
+  min-width: 16px;
+  max-width: 16px;
+  height: 11px;
+  margin: 4px 0 0 6px;
+  background-image: url('../img/flags.png');
+}
+
+.mra-row td:nth-child(3) {
+  min-width: 160px;
   margin-left: 10px;
   text-align: left;
 }
 
-.mra-row td:nth-child(3) {
+.mra-row td:nth-child(4) {
+  width: 65%;
   font: 500 14px Roboto;
   font-style: italic;
   text-align: right;
