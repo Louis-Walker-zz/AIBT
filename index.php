@@ -14,7 +14,7 @@ $welcome_msg = '';
 // MYSQL ////////////////////////////////////////
 $mysql_host = 'localhost';
 $mysql_user = 'bag_the_second';
-$mysql_pass = 'yumyums';
+$mysql_pass = 'OBFUSCATED';
 mysql_connect($mysql_host, $mysql_user, $mysql_pass) or die("Couldn't connect");
 
 $mysql_db = 'aibt';
