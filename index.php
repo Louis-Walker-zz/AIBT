@@ -56,10 +56,10 @@ function ago($time)
 
 // COUNTRY NAME
 function getCountryName($code) {
-	$query = 'SELECT * FROM Countries WHERE CountryCode="' .$code .'"';
+	$query = 'SELECT * FROM `countries` WHERE `COL 2`="' .$code .'"';
 	if ($query_run = mysql_query($query)) {
 		while($row = mysql_fetch_assoc($query_run)) {
-			return $row['CountryName'];
+			return $row['COL 1'];
 		}
 	}
 }
@@ -82,7 +82,7 @@ if ($query_run = mysql_query($query)) {
 		$country = $row['Country'];
 
 		// 18 HOURS HAS PASSED?
-		date_default_timezone_set('America/Los_Angeles');
+		date_default_timezone_set('Europe/London');
 		$time_diff = time() - strtotime($timestamp);
 		// times
 		$hours = floor($time_diff/3600);
